@@ -4,13 +4,12 @@
   "description": "resources to be used by the QUT CAB230 teaching team",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jest.config.json"
+    "test": "jest --config jest.config.json --runInBand"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trjstewart/qut-cab230-teaching.git"
   },
-  "type": "module",
   "author": "Tylor Stewart <trjstewart@gmail.com>",
   "contributors": [],
   "license": "UNLICENSED",
@@ -23,6 +22,7 @@
     "jest-html-reporter": "^3.4.1"
   },
   "dependencies": {
+    "@jest/test-sequencer": "^28.1.0",
     "axios": "^0.21.1",
     "faker": "^5.5.3",
     "https": "^1.0.0",

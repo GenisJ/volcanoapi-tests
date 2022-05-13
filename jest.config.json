@@ -8,5 +8,6 @@
         "outputPath": "report.html"
       }
     ]
-  ]
+  ],
+  "testSequencer": "./sequence.js"
 }
