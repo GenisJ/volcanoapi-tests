@@ -31,7 +31,6 @@ let userOneToken;
 let userTwoToken;
 
 describe("user", () => {
-  console.log("userOne", userOne);
   describe("registration", () => {
     describe("with missing email", () => {
       beforeAll(async () => {
@@ -382,7 +381,6 @@ describe("volcanoes", () => {
 /* ======================== Volcano ======================== */
 describe("volcano", () => {
   beforeAll(async () => {
-    console.log("userOne", userOne);
     const login = await instance.post(`user/login`, {
       email: userOne.email,
       password: userOne.password,
@@ -787,7 +785,7 @@ describe("profile", () => {
 
     describe("with authenticated non-matching user", () => {
       beforeAll(async () => {
-        const login = await axios.post(`user/login`, {
+        const login = await instance.post(`user/login`, {
           email: userTwo.email,
           password: userTwo.password,
         });
@@ -825,7 +823,7 @@ describe("profile", () => {
 
     describe("with authenticated matching user", () => {
       beforeAll(async () => {
-        const login = await axios.post(`user/login`, {
+        const login = await instance.post(`user/login`, {
           email: userOne.email,
           password: PASSWORD_USER_ONE,
         });
