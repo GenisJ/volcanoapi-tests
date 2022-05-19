@@ -1,5 +1,6 @@
 const to = require("./lib/to");
 const { instance, userOne, userTwo, nonExistantUser } = require("./lib/setup");
+const { v4: uuid } = require("uuid");
 
 /* ======================= Countries ======================= */
 describe("countries", () => {
@@ -611,6 +612,13 @@ describe("volcano", () => {
 /* ======================= Profile ======================= */
 describe("profile", () => {
   beforeAll(async () => {
+    const request = await to.object(
+      instance.post(`user/register`, {
+        email: userTwo.email,
+        password: userTwo.password,
+      })
+    );
+
     const login = await instance.post(`user/login`, {
       email: userTwo.email,
       password: userTwo.password,
@@ -825,7 +833,7 @@ describe("profile", () => {
       beforeAll(async () => {
         const login = await instance.post(`user/login`, {
           email: userOne.email,
-          password: PASSWORD_USER_ONE,
+          password: userOne.password,
         });
         userOneToken = login.data.token;
       });
@@ -889,9 +897,9 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Request body invalid, firstName, lastName and address must be strings only.'", () =>
+        test("should return a specific message for 'Request body invalid: firstName, lastName and address must be strings only.'", () =>
           expect(response.data.message).toBe(
-            "Request body invalid, firstName, lastName and address must be strings only."
+            "Request body invalid: firstName, lastName and address must be strings only."
           ));
       });
 
@@ -924,9 +932,9 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Request body invalid, firstName, lastName and address must be strings only.'", () =>
+        test("should return a specific message for 'Request body invalid: firstName, lastName and address must be strings only.'", () =>
           expect(response.data.message).toBe(
-            "Request body invalid, firstName, lastName and address must be strings only."
+            "Request body invalid: firstName, lastName and address must be strings only."
           ));
       });
 
@@ -959,9 +967,9 @@ describe("profile", () => {
           expect(response.data.error).toBe(true));
         test("should contain message property", () =>
           expect(response.data).toHaveProperty("message"));
-        test("should return a specific message for 'Request body invalid, firstName, lastName and address must be strings only.'", () =>
+        test("should return a specific message for 'Request body invalid: firstName, lastName and address must be strings only.'", () =>
           expect(response.data.message).toBe(
-            "Request body invalid, firstName, lastName and address must be strings only."
+            "Request body invalid: firstName, lastName and address must be strings only."
           ));
       });
 
@@ -1312,21 +1320,6 @@ describe("Miscellaneous", () => {
     test("should return access-control-allow-origin in headers", () =>
       expect(response.headers).toHaveProperty("access-control-allow-origin"));
   });
-
-  describe("with supressed x-powered-by header", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get(``));
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("return a status of 200", () => expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
-    test("should not x-powered-by header property", () =>
-      expect(response.headers).not.toHaveProperty("x-powered-by"));
-  });
 });
 
 /* ======================= Misc ======================= */
@@ -1372,20 +1365,5 @@ describe("Miscellaneous", () => {
       expect(response.statusText).toBe("OK"));
     test("should return access-control-allow-origin in headers", () =>
       expect(response.headers).toHaveProperty("access-control-allow-origin"));
-  });
-
-  describe("with supressed x-powered-by header", () => {
-    beforeAll(async () => {
-      const request = await to.object(instance.get());
-      return (response = request.resolve
-        ? request.resolve
-        : request.reject.response);
-    });
-
-    test("return a status of 200", () => expect(response.status).toBe(200));
-    test("should return status text - OK", () =>
-      expect(response.statusText).toBe("OK"));
-    test("should not x-powered-by header property", () =>
-      expect(response.headers).not.toHaveProperty("x-powered-by"));
   });
 });
