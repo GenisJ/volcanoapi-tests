@@ -1367,3 +1367,20 @@ describe("Miscellaneous", () => {
       expect(response.headers).toHaveProperty("access-control-allow-origin"));
   });
 });
+
+/* ======================= Me ======================= */
+describe("Me", () => {
+  describe("with student information", () => {
+    beforeAll(async () => {
+      const request = await to.object(instance.get("me"));
+      return (response = request.resolve
+        ? request.resolve
+        : request.reject.response);
+    });
+
+    test("should return name property", () =>
+      expect(response.data).toHaveProperty("name"));
+    test("should return student_number property", () =>
+      expect(response.data).toHaveProperty("student_number"));
+  });
+});
