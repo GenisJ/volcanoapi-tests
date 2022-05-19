@@ -1,5 +1,5 @@
 {
-  "name": "qut-cab230-teaching",
+  "name": "volcanoapi-tests",
   "version": "0.0.1",
   "description": "resources to be used by the QUT CAB230 teaching team",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trjstewart/qut-cab230-teaching.git"
+    "url": "git+https://github.com/chadggay/volcanoapi-tests.git"
   },
-  "author": "Tylor Stewart <trjstewart@gmail.com>",
+  "author": "Chad Gay <chad@chadgay.com>",
   "contributors": [],
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/trjstewart/qut-cab230-teaching/issues"
+    "url": "https://github.com/chadggay/volcanoapi-tests/issues"
   },
-  "homepage": "https://github.com/trjstewart/qut-cab230-teaching#readme",
+  "homepage": "https://github.com/chadggay/volcanoapi-tests#readme",
   "devDependencies": {
     "jest": "^27.0.3",
     "jest-html-reporter": "^3.4.1"
