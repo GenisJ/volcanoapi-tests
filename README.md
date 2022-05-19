@@ -9,16 +9,16 @@ npm install
 npm test
 ```
 
-By default we test `http://localhost:3000`, however you may change the URL setting to suit your system by editing the definition in the file `api.js`:
+By default we test `http://localhost:3001`, however you may change the URL setting to suit your system by editing the definition in the file `api.js`:
 
 ```javascript
-//If you are serving your server on any port other than 3000, change the port here, or alternatively change the url as approriate
-const REMOTE_API_URL = `http://localhost:3000`;
+//If you are serving your server on any port other than 3001, change the port here, or alternatively change the url as approriate
+const REMOTE_API_URL = `http://localhost:3001`;
 ```
 
 ## After each run
 
-After each run, you will see output on the screen, but if there are a number of errors you will find it easier to browse the `report.html` file which will appear in the top directory. This will give you a good idea of how your server is behaving. Ideally you'd want to see all 306 tests passing. If you aren't sure what is going wrong, have a look at the messages and then dig directly into the code itself - the files ending in `.test.js`. If you are unsure of the behaviour, look at the Swagger or hit the endpoint with postman to debug. An example version of this file - `example.html` - may be found in the top directory.
+After each run, you will see output on the screen, but if there are a number of errors you will find it easier to browse the `report.html` file which will appear in the top directory. This will give you a good idea of how your server is behaving. Ideally you'd want to see all tests passing. If you aren't sure what is going wrong, have a look at the messages and then dig directly into the code itself - the files ending in `.test.js`. If you are unsure of the behaviour, look at the Swagger or hit the endpoint with postman to debug. An example version of this file - `example.html` - may be found in the top directory.
 
 ## Some more detail
 
