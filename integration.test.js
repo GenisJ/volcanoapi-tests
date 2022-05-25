@@ -4,7 +4,7 @@ const { v4: uuid } = require("uuid");
 
 /* ======================= Countries ======================= */
 describe("countries", () => {
-  describe("with no query parmater", () => {
+  describe("with no query parameter", () => {
     beforeAll(async () => {
       const request = await to.object(instance.get(`countries`));
       return (response = request.resolve
@@ -1043,7 +1043,7 @@ describe("profile", () => {
           ));
       });
 
-      describe("with valid formatted non-real date (Javascript date rollover check)", () => {
+      describe("with valid formatted non-real date (JavaScript date rollover check)", () => {
         beforeAll(async () => {
           const request = await to.object(
             instance.put(
