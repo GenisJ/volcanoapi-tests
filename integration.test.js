@@ -393,7 +393,7 @@ describe("volcano", () => {
     beforeAll(async () => {
       const request = await to.object(
         instance.get(`volcano/57`, {
-          headers: { Authorization: `Bearer ${userOneToken}` },
+          headers: {},
         })
       );
       return (response = request.resolve
