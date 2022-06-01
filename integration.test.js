@@ -123,7 +123,7 @@ describe("login", () => {
     });
     test("should return status code 400", () =>
       expect(response.status).toBe(400));
-    test("should return status text - Created", () =>
+    test("should return status text - Bad Request", () =>
       expect(response.statusText).toBe("Bad Request"));
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
@@ -140,7 +140,7 @@ describe("login", () => {
     });
     test("should return status code 400", () =>
       expect(response.status).toBe(400));
-    test("should return status text - Created", () =>
+    test("should return status text - Bad Request", () =>
       expect(response.statusText).toBe("Bad Request"));
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
@@ -161,7 +161,7 @@ describe("login", () => {
 
     test("should return status code 401", () =>
       expect(response.status).toBe(401));
-    test("should return status text - Created", () =>
+    test("should return status text - Unauthorized", () =>
       expect(response.statusText).toBe("Unauthorized"));
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
@@ -182,7 +182,7 @@ describe("login", () => {
 
     test("should return status code 401", () =>
       expect(response.status).toBe(401));
-    test("should return status text - Created", () =>
+    test("should return status text - Unauthorized", () =>
       expect(response.statusText).toBe("Unauthorized"));
     test("should contain message property", () =>
       expect(response.data).toHaveProperty("message"));
